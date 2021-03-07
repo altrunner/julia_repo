@@ -25,7 +25,7 @@ class ZooTest {
     @Test
     void testAZooWithTwoCats() {
         // TODO add two cats to the zoo
-        Zoo zoo = new Zoo();
+        Zoo zoo = new Zoo(List.of(new Cat(), new Cat()));
 
         assertThat(zoo.talkToMe()).containsExactly("Meow", "Meow");
     }
@@ -33,7 +33,7 @@ class ZooTest {
     @Test
     void testAZooWithACatAndADog() {
         // TODO we need a Dog...
-        Zoo zoo = new Zoo();
+        Zoo zoo = new Zoo(List.of(new Cat(), new Dog()));
 
         assertThat(zoo.talkToMe()).containsExactly("Meow", "Woof");
     }
@@ -41,7 +41,7 @@ class ZooTest {
     @Test
     void testALargeZoo() {
         // TODO Just wanted to keep you busy for a while
-        Zoo zoo = new Zoo();
+        Zoo zoo = new Zoo(List.of(new Bird(), new Dog(), new Cat(), new Lion()));
 
         assertThat(zoo.talkToMe()).containsExactly("Tweet", "Woof", "Meow", "Roar");
     }
@@ -49,8 +49,8 @@ class ZooTest {
     @Test
     void putOlegToTheZoo() {
         // TODO Now you have to smile and implement me
-        Zoo zoo = new Zoo();
+        Zoo zoo = new Zoo(List.of(new Oleg()));
 
-        assertThat(zoo.talkToMe()).containsExactly("F**k");
+        assertThat(zoo.talkToMe()).containsExactly("Give me a hug and a kiss!");
     }
 }

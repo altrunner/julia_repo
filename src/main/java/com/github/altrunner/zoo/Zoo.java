@@ -25,7 +25,7 @@ public class Zoo {
     }
 
     /**
-     * I will ask all animals in the zoo to say something an will return all their voices collected into a list.
+     * I will ask all animals in the zoo to say something and will return all their voices collected into a list.
      *
      * @return voices of all animals in the zoo
      */

@@ -53,4 +53,11 @@ class ZooTest {
 
         assertThat(zoo.talkToMe()).containsExactly("Give me a hug and a kiss!");
     }
+
+    @Test
+    void testTwoCatsOfDifferentColors() {
+        Zoo zoo = new Zoo(List.of(new Cat("Black"), new Cat("White")));
+
+        assertThat(zoo.talkToMe()).containsExactly("Black cat says Meow", "White cat says Meow");
+    }
 }

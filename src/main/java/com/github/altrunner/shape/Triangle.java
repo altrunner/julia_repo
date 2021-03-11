@@ -1,5 +1,7 @@
 package com.github.altrunner.shape;
 
+import static java.lang.Math.sqrt;
+
 public class Triangle implements Shape{
 
     double a, b, c;
@@ -15,7 +17,7 @@ public class Triangle implements Shape{
     }
 
     @Override
-    public double shapeAreaCalculate() {
-        return Math.sqrt((a+b+c)/2*((a+b+c)/2 - a)*((a+b+c)/2 - b)*((a+b+c)/2 - c));
+    public double area() {
+        return sqrt((a+b+c)/2*((a+b+c)/2 - a)*((a+b+c)/2 - b)*((a+b+c)/2 - c));
     }
 }

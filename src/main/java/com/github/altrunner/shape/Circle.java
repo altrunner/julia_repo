@@ -2,6 +2,8 @@ package com.github.altrunner.shape;
 
 import java.lang.Math;
 
+import static java.lang.Math.*;
+
 public class Circle implements Shape{
 
     double radius;
@@ -11,7 +13,7 @@ public class Circle implements Shape{
     }
 
     @Override
-    public double shapeAreaCalculate() {
-        return Math.PI*Math.pow(radius, 2);
+    public double area() {
+        return PI* pow(this.radius, 2);
     }
 }

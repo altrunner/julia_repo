@@ -1,5 +1,7 @@
 package com.github.altrunner.shape;
 
+import static java.lang.Math.*;
+
 public class Rectangle implements Shape{
 
     double width;
@@ -11,7 +13,7 @@ public class Rectangle implements Shape{
     }
 
     @Override
-    public double shapeAreaCalculate() {
+    public double area() {
         return this.width * this.height;
     }
 }

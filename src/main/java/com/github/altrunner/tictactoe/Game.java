@@ -12,6 +12,8 @@ public class Game {
     // 1   O | X |
     // 2   X |   | X
 
+    Player [][] playBoard = new Player[3][3];
+
     /**
      * I place a mark on the field on behalf of the provided player
      *
@@ -23,6 +25,15 @@ public class Game {
      */
     public void placeMark(int x, int y, Player player) throws InvalidFieldException, FieldAlreadyMarkedException {
 
+        if (x < 0 || x > 2 || y < 0 || y > 2){
+            throw new InvalidFieldException();
+        }
+        else if (playBoard[x][y] != null){
+            throw new FieldAlreadyMarkedException();
+        }
+        else{
+            playBoard[x][y] = player;
+        }
     }
 
     /**
@@ -32,6 +43,37 @@ public class Game {
      * @return true if player wins the game
      */
     public boolean isWinner(Player player) {
+
+        // Vertical
+        if (playBoard[0][0]==player && playBoard[0][1]==player && playBoard[0][2]==player){
+            return true;
+        }
+        else if (playBoard[1][0]==player && playBoard[1][1]==player && playBoard[1][2]==player){
+            return true;
+        }
+        else if (playBoard[2][0]==player && playBoard[2][1]==player && playBoard[2][2]==player){
+            return true;
+        }
+
+        // Horizontal
+        else if (playBoard[0][0]==player && playBoard[1][0]==player && playBoard[2][0]==player){
+            return true;
+        }
+        else if (playBoard[0][1]==player && playBoard[1][1]==player && playBoard[2][1]==player){
+            return true;
+        }
+        else if (playBoard[0][2]==player && playBoard[1][2]==player && playBoard[2][2]==player){
+            return true;
+        }
+
+        // Diagonal
+        else if (playBoard[0][0]==player && playBoard[1][1]==player && playBoard[2][2]==player){
+            return true;
+        }
+        else if (playBoard[0][2]==player && playBoard[1][1]==player && playBoard[2][0]==player){
+            return true;
+        }
+
         return false;
     }
 }

@@ -1,18 +1,24 @@
 package com.github.altrunner.zoo;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+import static java.util.Collections.emptyList;
 
 public class Zoo {
 
+    private final String address;
     private final List<Animal> animals;
 
     /**
      * Create an empty Zoo.
      */
     public Zoo() {
-        this(Collections.emptyList());
+        this(emptyList());
+    }
+
+    public Zoo(List<Animal> animals) {
+        this(animals, "default address");
     }
 
     /**
@@ -20,8 +26,9 @@ public class Zoo {
      *
      * @param animals that will live in this zoo
      */
-    public Zoo(List<Animal> animals) {
+    public Zoo(List<Animal> animals, String address) {
         this.animals = animals;
+        this.address = address;
     }
 
     /**

@@ -12,7 +12,7 @@ public class Stack {
 
     int depth;
 
-    ArrayList<Integer> stack = new ArrayList<Integer>(depth);
+    ArrayList<Integer> stack = new ArrayList<>(depth);
 
     /**
      * Construct a new fixed depth stack.
@@ -30,7 +30,7 @@ public class Stack {
      *
      * @param number to be added on top of the stack
      */
-    public void push(int number) {
+    public void push(int number) throws StackOverflowException {
         if (stack.size() == depth) {
             throw new StackOverflowException();
         }
@@ -45,15 +45,13 @@ public class Stack {
      *
      * @return top number of the stack
      */
-    public int pop() {
+    public int pop() throws StackEmptyException {
 
         if (stack.isEmpty()) {
             throw new StackEmptyException();
         }
 
-        int number = stack.get(0);
-        stack.remove(0);
-        return number;
+        return stack.remove(0);
 
     }
 }

@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class StackTest {
 
     @Test
-    void sunnyDayScenario() {
+    void sunnyDayScenario() throws Exception {
         Stack testable = new Stack(5);
 
         testable.push(0);

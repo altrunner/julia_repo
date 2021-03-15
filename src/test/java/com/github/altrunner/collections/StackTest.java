@@ -2,11 +2,15 @@ package com.github.altrunner.collections;
 
 import com.github.altrunner.collections.exceptions.StackEmptyException;
 import com.github.altrunner.collections.exceptions.StackOverflowException;
+import com.google.common.base.Stopwatch;
 import org.junit.jupiter.api.Test;
+
+import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 class StackTest {
 
     @Test
@@ -40,5 +44,18 @@ class StackTest {
         Stack testable = new Stack(5);
 
         assertThatThrownBy(testable::pop).isInstanceOf(StackEmptyException.class);
+    }
+
+    @Test
+    void testStackPerformance() throws StackOverflowException {
+        final int depth = 250000;
+        Stack testable = new Stack(depth);
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        for (int i = 0; i < depth; i++) {
+            testable.push(i);
+        }
+        assertThat(stopwatch.elapsed(TimeUnit.MILLISECONDS))
+            .withFailMessage("Sorry your code is way too slow, it took me %s seconds to push %s elements.)", stopwatch.elapsed(TimeUnit.SECONDS), depth)
+            .isLessThan(10);
     }
 }

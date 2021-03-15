@@ -1,9 +1,18 @@
 package com.github.altrunner.collections;
 
+import com.github.altrunner.collections.exceptions.StackEmptyException;
+import com.github.altrunner.collections.exceptions.StackOverflowException;
+
+import java.util.ArrayList;
+
 /**
  * I can keep a number of ints in a First In Last Out fashion.
  */
 public class Stack {
+
+    int depth;
+
+    ArrayList<Integer> stack = new ArrayList<Integer>(depth);
 
     /**
      * Construct a new fixed depth stack.
@@ -11,6 +20,7 @@ public class Stack {
      * @param depth how many elements can be pushed to the created instance.
      */
     public Stack(int depth) {
+        this.depth = depth;
     }
 
     /**
@@ -21,6 +31,10 @@ public class Stack {
      * @param number to be added on top of the stack
      */
     public void push(int number) {
+        if (stack.size() == depth) {
+            throw new StackOverflowException();
+        }
+        stack.add(0, number);
 
     }
 
@@ -32,6 +46,14 @@ public class Stack {
      * @return top number of the stack
      */
     public int pop() {
-        return 0;
+
+        if (stack.isEmpty()) {
+            throw new StackEmptyException();
+        }
+
+        int number = stack.get(0);
+        stack.remove(0);
+        return number;
+
     }
 }

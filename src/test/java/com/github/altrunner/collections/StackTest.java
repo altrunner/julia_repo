@@ -15,7 +15,7 @@ class StackTest {
 
     @Test
     void sunnyDayScenario() throws Exception {
-        Stack testable = new Stack(5);
+        Stack testable = new FastStack(5);
 
         testable.push(0);
         testable.push(1);
@@ -32,7 +32,7 @@ class StackTest {
 
     @Test
     void pushMoreElementsThanStackDepthShouldFail() {
-        Stack testable = new Stack(2);
+        Stack testable = new FastStack(2);
 
         assertThatCode(() -> testable.push(0)).doesNotThrowAnyException();
         assertThatCode(() -> testable.push(1)).doesNotThrowAnyException();
@@ -41,7 +41,7 @@ class StackTest {
 
     @Test
     void popFromEmptyStackShouldFail() {
-        Stack testable = new Stack(5);
+        Stack testable = new FastStack(5);
 
         assertThatThrownBy(testable::pop).isInstanceOf(StackEmptyException.class);
     }
@@ -49,7 +49,7 @@ class StackTest {
     @Test
     void testStackPerformance() throws StackOverflowException {
         final int depth = 250000;
-        Stack testable = new Stack(depth);
+        Stack testable = new FastStack(depth);
         Stopwatch stopwatch = Stopwatch.createStarted();
         for (int i = 0; i < depth; i++) {
             testable.push(i);

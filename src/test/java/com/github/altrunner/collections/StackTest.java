@@ -55,7 +55,7 @@ class StackTest {
             testable.push(i);
         }
         assertThat(stopwatch.elapsed(TimeUnit.MILLISECONDS))
-            .withFailMessage("Sorry your code is way too slow, it took me %s seconds to push %s elements.)", stopwatch.elapsed(TimeUnit.SECONDS), depth)
+            .withFailMessage("Sorry your code is way too slow, it took me %s ms. to push %s elements.)", stopwatch.elapsed(TimeUnit.MILLISECONDS), depth)
             .isLessThan(10);
     }
 }

@@ -3,7 +3,8 @@ package com.github.altrunner.collections;
 import com.github.altrunner.collections.exceptions.StackEmptyException;
 import com.github.altrunner.collections.exceptions.StackOverflowException;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * I can keep a number of ints in a First In Last Out fashion.
@@ -12,7 +13,7 @@ public class Stack {
 
     int depth;
 
-    ArrayList<Integer> stack = new ArrayList<>(depth);
+    LinkedList<Integer> stack = new LinkedList<Integer>();
 
     /**
      * Construct a new fixed depth stack.
@@ -34,7 +35,9 @@ public class Stack {
         if (stack.size() == depth) {
             throw new StackOverflowException();
         }
-        stack.add(0, number);
+        if (stack.size() < depth) {
+            stack.addFirst(number);
+        }
 
     }
 
@@ -51,7 +54,7 @@ public class Stack {
             throw new StackEmptyException();
         }
 
-        return stack.remove(0);
+        return stack.removeFirst();
 
     }
 }

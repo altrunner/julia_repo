@@ -6,6 +6,8 @@ public class Caffee implements DrinkReceipt, DrinkPreparation, Rating{
 
     String name;
     int rating;
+    Map<String, Integer> ingredients;
+
 
     @Override
     public String getName() {
@@ -20,7 +22,8 @@ public class Caffee implements DrinkReceipt, DrinkPreparation, Rating{
 
     @Override
     public Map<String, Integer> makeDrink() {
-        return null;
+
+        return Map.of("Water", 100, "Arabica", 20);
     }
 
     @Override

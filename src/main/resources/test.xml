@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<POSBOFile version="2" xmlns="http://www.wayne.com/2007-05-07/POS-BO">
+    <POSEvent datetime="2021-04-06T12:35:44+02:00" sender="QuantPOS" sequenceNumber="263" stationNumber="155023">
+        <Receipt datetime="2021-04-06T14:35:38+02:00" id="1" receiptId="8123535" receiptNumber="8123535" receiptType="sale" shiftId="8123527" terminalId="12" terminalType="pos">
+            <ItemLines>
+                <ItemLine itemType="sku" lineType="normal">
+                    <ItemId>6090</ItemId>
+                    <BarCode>6090</BarCode>
+                    <Quantity>1.000</Quantity>
+                    <UnitPrice>1.000</UnitPrice>
+                    <Amount>1.000</Amount>
+                    <AccountId>59</AccountId>
+                    <EFTCodeId>426</EFTCodeId>
+                    <SalesType>takeaway</SalesType>
+                    <TaxClassId>2</TaxClassId>
+                    <TaxAmount>0.020</TaxAmount>
+                </ItemLine>
+            </ItemLines>
+            <TenderLines>
+                <TenderLine isExchange="false" paymentType="cash">
+                    <TenderAmount currencyId="CHF" domesticValue="1.000">1.000</TenderAmount>
+                </TenderLine>
+            </TenderLines>
+            <TaxSummaryLine grossTaxAmount="1.000" taxAmount="0.020" taxClassId="2"/>
+        </Receipt>
+    </POSEvent>
+</POSBOFile>
